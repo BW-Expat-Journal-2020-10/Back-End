@@ -15,10 +15,11 @@ public class StoryController {
     public StoryController(StoryService storyService) {
         this.storyService = storyService;
     }
-
+/**
     @GetMapping(value = "/story", produces = { "application/json" })
     public ResponseEntity<?> getStoryCategoryList() {
         List<StoryCategoryList> returnList = storyService.getStoryCategoryList();
         return new ResponseEntity<>(returnList, HttpStatus.OK);
     }
+    **/
 }

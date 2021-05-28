@@ -110,7 +110,7 @@
     </dependencies>
 
     <build>
-        <finalName>expat-journal-bw-java</finalName>
+        <finalName>api-expatjournal</finalName>
 
         <plugins>
             <plugin>
