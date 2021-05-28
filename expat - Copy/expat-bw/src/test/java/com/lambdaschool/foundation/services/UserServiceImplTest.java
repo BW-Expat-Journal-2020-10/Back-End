@@ -1,12 +1,14 @@
 package com.lambdaschool.foundation.services;
 
+import com.lambdaschool.expat.services.HelperFunctions;
+import com.lambdaschool.expat.services.UserService;
 import com.lambdaschool.foundation.ExpatApplication;
-import com.lambdaschool.foundation.exceptions.ResourceNotFoundException;
-import com.lambdaschool.foundation.models.Role;
-import com.lambdaschool.foundation.models.User;
-import com.lambdaschool.foundation.models.UserRoles;
-import com.lambdaschool.foundation.models.Useremail;
-import com.lambdaschool.foundation.repository.UserRepository;
+import com.lambdaschool.expat.exceptions.ResourceNotFoundException;
+import com.lambdaschool.expat.models.Role;
+import com.lambdaschool.expat.models.User;
+import com.lambdaschool.expat.models.UserRoles;
+import com.lambdaschool.expat.models.Useremail;
+import com.lambdaschool.expat.repository.UserRepository;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

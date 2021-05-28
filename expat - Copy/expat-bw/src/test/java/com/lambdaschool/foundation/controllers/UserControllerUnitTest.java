@@ -2,11 +2,12 @@ package com.lambdaschool.foundation.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.lambdaschool.foundation.ExpatApplication;
-import com.lambdaschool.foundation.models.Role;
-import com.lambdaschool.foundation.models.User;
-import com.lambdaschool.foundation.models.UserRoles;
-import com.lambdaschool.foundation.models.Useremail;
-import com.lambdaschool.foundation.services.UserService;
+import com.lambdaschool.foundation.FoundationApplication;
+import com.lambdaschool.expat.models.Role;
+import com.lambdaschool.expat.models.User;
+import com.lambdaschool.expat.models.UserRoles;
+import com.lambdaschool.expat.models.Useremail;
+import com.lambdaschool.expat.services.UserService;
 import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.After;
 import org.junit.Before;
@@ -40,7 +41,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // mocking service to test controller
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = ExpatApplication.class)
+    @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = ExpatApplication.class)
 @AutoConfigureMockMvc
 @WithMockUser(username = "admin",
     roles = {"USER", "ADMIN"})

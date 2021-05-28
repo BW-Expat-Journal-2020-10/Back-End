@@ -21,13 +21,13 @@ public class StoryServiceImpl implements StoryService {
     public StoryServiceImpl(StoryRepository storyRepository) {
         this.storyRepository = storyRepository;
     }
-
+/**
     @Override
     public List<StoryCategoryList> getStoryCategoryList() {
         List<StoryCategoryList> returnList = storyRepository.getStoryCategoryList();
         return returnList;
     }
-
+**/
     /**
      * Finds a list of all products in the database
      *

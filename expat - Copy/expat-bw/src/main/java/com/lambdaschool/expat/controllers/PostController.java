@@ -65,8 +65,8 @@ public class PostController {
      */
     @GetMapping(value = "/user/posts", produces = { "application/json" })
     public ResponseEntity<?> findByUserId(Authentication authentication) {
-        User currentUser = helperFunctions.getCurrentUser();
-        List<Post> postList = postService.findByUserId(currentUser.getUserId());
+        User currentUser = userService.findByName(authentication.getName());
+        List<Post> postList = postService.findByUserId(currentUser.getUserid());
         return new ResponseEntity<>(postList, HttpStatus.OK);
     }
 
@@ -90,10 +90,11 @@ public class PostController {
      * @return A location head with the URI to the newly created item and a status of CREATED
      */
     @PostMapping(value = "/post", consumes = { "application/json" })
-    public ResponseEntity<?> addNewPost(@Valid @RequestBody Post newPost) {
+    public ResponseEntity<?> addNewPost(@Valid @RequestBody Post newPost, Authentication authentication) {
         // always post as current user
-        newPost.setUser(helperFunctions.getCurrentUser());
-
+    //    newPost.setUser(helperFunctions.getCurrentUser());
+        User currentUser = userService.findByName(authentication.getName());
+        newPost.setUser(currentUser);
         newPost = postService.save(newPost);
 
         HttpHeaders responseHeaders = new HttpHeaders();
@@ -118,9 +119,10 @@ public class PostController {
     @PatchMapping(value = "/post/{postId}", consumes = { "application/json" })
     public ResponseEntity<?> updatePost(
             @RequestBody Post updatePost,
-            @PathVariable long postId
+            @PathVariable long postId, Authentication authentication
     ) {
-        updatePost.setUser(helperFunctions.getCurrentUser());
+        User currUser = userService.findByName(authentication.getName());
+        updatePost.setUser(currUser);
         postService.update(updatePost, postId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
